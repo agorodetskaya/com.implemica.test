@@ -17,12 +17,12 @@ public class DijkstrasAlgorithmTest {
 
     @Test
     public void shouldReturnCurrentResult() throws Exception {
-        String[] parameters = {String.valueOf(1), String.valueOf(4),
-                "gdansk", String.valueOf(2), "2 1", "3 3",
-                "bydgoszcz", String.valueOf(3), "1 1", "3 1", "4 4",
-                "torun", String.valueOf(3), "1 3", "2 1", "4 1",
-                "warszawa", String.valueOf(2), "2 4", "3 1",
-                String.valueOf(2), "gdansk warszawa", "bydgoszcz warszawa"};
+        String[] parameters = {"1", "4",
+                "gdansk", "2", "2 1", "3 3",
+                "bydgoszcz", "3", "1 1", "3 1", "4 4",
+                "torun", "3", "1 3", "2 1", "4 1",
+                "warszawa", "2", "2 4", "3 1",
+                "2", "gdansk warszawa", "bydgoszcz warszawa"};
         for (String parameter : parameters) {
             dijkstrasAlgorithmConsoleDataHandler.executeConsoleData(parameter);
         }
@@ -33,12 +33,12 @@ public class DijkstrasAlgorithmTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionToIncorrectCommunicationBetweenCities() throws Exception {
-        String[] parameters = {String.valueOf(1), String.valueOf(4),
-                "gdansk", String.valueOf(2), "2 4", "3 3",
-                "bydgoszcz", String.valueOf(3), "1 1", "3 1", "4 4",
-                "torun", String.valueOf(3), "1 3", "2 1", "4 1",
-                "warszawa", String.valueOf(2), "2 4", "3 1",
-                String.valueOf(2), "gdansk warszawa", "bydgoszcz warszawa"};
+        String[] parameters = {"1", "4",
+                "gdansk", "2", "2 4", "3 3",
+                "bydgoszcz", "3", "1 1", "3 1", "4 4",
+                "torun", "3", "1 3", "2 1", "4 1",
+                "warszawa", "2", "2 4", "3 1",
+                "2", "gdansk warszawa", "bydgoszcz warszawa"};
         for (String parameter : parameters) {
             dijkstrasAlgorithmConsoleDataHandler.executeConsoleData(parameter);
         }
