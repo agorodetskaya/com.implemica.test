@@ -68,6 +68,10 @@ public class DijkstrasAlgorithmConsoleDataHandler implements ConsoleDataHandler 
      * Then parameter fits in {@link this.dijkstrasAlgorithm}.
      *
      * @param inputParameter input parameter which is validated and processed depending on the current phase.
+     * @throws IllegalArgumentException 1. number of tests more than 10;
+     *                                  2. number of cities more than 10000;
+     *                                  3. nmber of neighbors more than the number of cities;
+     *                                  4. number of of path to find more than 100.
      */
     private void setParameter(String inputParameter) {
         switch (currentParameterPhase) {
@@ -98,7 +102,7 @@ public class DijkstrasAlgorithmConsoleDataHandler implements ConsoleDataHandler 
             case NUMBER_OF_NEIGHBOURS:
                 int numberOfNeighbours = checkInteger(inputParameter, "numner of neighbours");
                 if (dijkstrasAlgorithm.getNumberOfCities() - 1 < numberOfNeighbours) {
-                    throw new IllegalArgumentException("Number of neighbors more than the number of not specified cities. " +
+                    throw new IllegalArgumentException("Number of neighbors more than the number of cities. " +
                             "Please try again.");
                 }
                 city.setNumberOfNeighbours(numberOfNeighbours);
@@ -120,7 +124,7 @@ public class DijkstrasAlgorithmConsoleDataHandler implements ConsoleDataHandler 
             case NUMBER_OF_PATHS_TO_FIND:
                 int numberOfPathsToFind = checkInteger(inputParameter, "number of path to find");
                 if (numberOfPathsToFind > 100) {
-                    throw new IllegalArgumentException("Number of of path to find should be less than 10000. " +
+                    throw new IllegalArgumentException("Number of of path to find should be less than 100. " +
                             "Please try again.");
                 }
                 dijkstrasAlgorithm.setNumberOfPathsToFind(numberOfPathsToFind);

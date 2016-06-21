@@ -29,6 +29,7 @@ public class SumOfDigitCalculator implements ConsoleDataHandler {
      * Displays the sum of the digits of the factorial {@param numberForFactorial}.
      * @param numberForFactorial non-negative integer of which will be calculated factorial.
      * @return sum of the digits of the factorial {@param numberForFactorial}.
+     * @throws IllegalArgumentException {@param numberForFactorial} < 0
      */
     public BigInteger findSumOfDigitsFromFactorial(long numberForFactorial) {
         BigInteger factorial = findFactorial(numberForFactorial);
